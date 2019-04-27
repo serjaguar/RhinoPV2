@@ -77,10 +77,6 @@ export class LoginPage implements OnInit {
             break;
           }
         }
-
-        // this.presentToast("Usuario / Contraseña incorrecta" + err.code);
-        //cambio
-          
       });
            
     }    
