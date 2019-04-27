@@ -1,0 +1,38 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+.login-alert
+{
+    // --background: #292929 !important;
+//   background-color: red;
+    // color: white; // text color for basic alerts
+
+    button {
+        color: #f7f7f7 !important;
+        background-color: #292929 !important;
+    }
+    .alert-message {
+        color: #f7f7f7 !important;
+        font-size: 13px;
+    }
+    .alert-wrapper {
+        background-color: #292929;
+    }
+    .alert-head {
+        background: #171717;
+        margin-bottom: 10px;
+    }
+    .alert-title{
+        color: #F8DD00 !important;
+        font-size: 15px;
+    }
+}

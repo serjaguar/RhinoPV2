@@ -1,0 +1,42 @@
+.linea {
+    margin: 0px;
+    height: 7px;
+    background-color: #F8DD00;
+  }
+
+  ion-item {
+    --highlight-color-focused: #F8DD00;
+  }
+
+  .mensaerr{
+      font-size: 0.9em;
+      color: #F5DB23;
+      text-align: center;
+  }
+
+.botonce{
+    text-align: center;
+}
+
+ion-button{
+  border-radius: 30px;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  font-size: 0.9em;
+  margin-bottom: 0px;
+  border: 2px solid #F8DD00;
+  border-bottom: -23px;
+  box-shadow: none ;
+  color: #000000;
+  background-color: #F8DD00;
+}
+
+.item-inner, ion-item {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+ion-alert {
+ --background: red !important;
+}

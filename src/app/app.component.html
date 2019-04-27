@@ -1,0 +1,47 @@
+<ion-app color="fondcla">
+    <ion-split-pane>
+      <ion-menu>
+        <ion-header>
+          <ion-toolbar color="dark" >
+            <!-- <ion-title>Menu</ion-title> -->
+            <br>
+            <ion-img class="logo" src="../assets/imagenes/logo_1.png"></ion-img>
+            <br>
+            <ion-label ><H2><B>{{UserId}}</B></H2></ion-label>
+            <ion-label><H3>Punto de Venta #345</H3></ion-label>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content color="fondcla">
+          <ion-list color="fondcla">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" color="fondcla">
+              <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" color="fondcla" lines="none">
+                <!-- <ion-icon slot="start" [name]="p.icon"></ion-icon> -->
+                <ion-img [src]="p.icon" style="width: 25px; height: 20px"></ion-img>
+                <ion-label>
+                    &nbsp; &nbsp;&nbsp; &nbsp; {{p.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+
+          <ion-list color="fondcla">
+            <ion-menu-toggle auto-hide="false" *ngFor="let c of salir" color="fondcla">
+              <ion-item color="fondcla" lines="none" (click)="Onlogout()">
+                <ion-icon slot="start" [name]="c.icon"></ion-icon>
+                <ion-label>
+                  {{c.title}}
+                </ion-label>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-list>
+
+
+
+        </ion-content>
+
+
+      </ion-menu>
+      <ion-router-outlet main></ion-router-outlet>
+    </ion-split-pane>
+  </ion-app>

@@ -1,0 +1,36 @@
+<ion-header>
+  <img class="logo" src="assets/imagenes/logo.jpeg" alt="">
+</ion-header>
+
+<ion-content padding>
+
+  <ion-label>
+    <p class="bienvenido"><b>Bienvenido</b></p>
+  </ion-label>
+
+  <br><br>
+
+  <form #form="ngForm" (ngSubmit)="login(form)">
+
+    <ion-input [(ngModel)]="email" type="text" placeholder="Usuario" name="usuario" ngModel required></ion-input>
+
+    <br>
+
+    <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" name="password" ngModel required></ion-input>
+
+    <br><br>
+
+    <ion-button [disabled]="form.invalid" (click)="onSubmitLogin()" expand="full" fill="clear" style="text-transform: none;">Ingresar</ion-button>
+
+    <br>
+
+    <ion-label> 
+      <p class="olvido" routerLink="/recuperar"><u>¿Olvidaste tu contraseña?</u></p>
+    </ion-label>
+
+    <ion-label> 
+        <p class="olvido" routerLink="/registro"><u>Inscribe tu negocio</u></p>
+    </ion-label>
+    
+  </form>>
+</ion-content>

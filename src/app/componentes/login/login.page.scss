@@ -1,0 +1,79 @@
+.logo{
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+    height: auto;
+}
+.light-back{
+    background-color: #000000;
+    width: auto;
+    height: 150px;
+}
+
+ion-header{
+    background-color: #000000;
+}
+
+.bienvenido{
+    font-size: 150%;
+    color: #F7F7F7;
+    text-align: center;
+}
+
+.centrar{
+    text-align: center;
+}
+
+ion-content{
+    --ion-background-color: #171717;
+}
+
+ion-input {
+    border-radius: 30px;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-bottom: 60px;
+    font-size: 1.0em;
+    margin-bottom: 0px;
+    border: 2px solid #292929;
+    border-bottom: -23px;
+    box-shadow: none ;
+    color: #f7f7f7;
+    background-color: #292929;
+}
+
+ion-input:focus-within{
+    border-radius: 30px;
+    padding-right: 60px;
+    padding-left: 60px;
+    padding-bottom: 60px;
+    font-size: 1.0em;
+    margin-bottom: 0px;
+    border: 2px solid #f8dd00;
+    border-bottom: -23px;
+    box-shadow: none ;
+    color: #f7f7f7;
+}
+
+ion-button{
+    border-radius: 30px;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    font-size: 1.3em;
+    margin-bottom: 0px;
+    border: 2px solid #f8dd00;
+    border-bottom: -23px;
+    box-shadow: none ;
+    color: #000000;
+    background-color: #f8dd00;
+}
+
+.olvido{
+    text-align: center;
+    color: #f8dd00;
+}
+.botonce{
+    text-align: center;
+}

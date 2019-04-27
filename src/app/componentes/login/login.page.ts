@@ -1,0 +1,87 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../../servicios/auth.service";
+import { Router } from "@angular/router";
+import { ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+})
+export class LoginPage implements OnInit {
+
+  email:string;
+  password:string;
+  mensaje:string;
+
+
+  constructor(private authService:AuthService,public router: Router,
+              public toastController: ToastController,
+              public alertController: AlertController) { }
+
+  async presentToast(mensaje) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 3000
+    });
+    toast.present();
+  }
+
+  async presentAlert(errores: string,) {
+    const alert = await this.alertController.create({
+      header: 'Rhino PV',
+      // subHeader: 'Problemas al iniciar la sesion',
+      cssClass: "login-alert",
+      message: errores,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  ngOnInit() {
+  }
+
+  onSubmitLogin(){
+    this.authService.login(this.email,this.password).then(res => {
+      // console.log("contenido " + this.authService.UserId);
+      
+      this.router.navigate(['/home']);
+
+      // this.presentToast("Bienvenido: " + this.registroForm.value.nombre);
+  
+      }).catch(err => {
+        
+        console.log(err.code)
+
+        switch (err.code){
+          case 'auth/user-disabled': {
+            this.presentAlert("El usuario no se encuentra activo");
+            break;
+          }
+          case 'auth/user-not-found': {
+            this.presentAlert("E-mail incorrecto, intente de nuevo");
+            break;
+          }
+          case 'auth/wrong-password': {
+            this.presentAlert("Password incorrecto, intente de nuevo");
+            break;
+          }
+          case 'auth/invalid-email': {
+            this.presentAlert("El correo introducido es incorrecto, intente de nuevo");
+            break;
+          }
+          default: {
+            this.presentAlert("Hay un problema con el servicio, validar con soporte técnico " + err.code);
+            break;
+          }
+        }
+
+        // this.presentToast("Usuario / Contraseña incorrecta" + err.code);
+          
+      });
+           
+    }    
+
+}
