@@ -107,13 +107,21 @@
   --ion-color-griso-shade: #6d6d6d;
   --ion-color-griso-tint: #898989;
 
-  // Color negro claro
+  /** Color negro claro **/
   --ion-color-negclaro: #292929;
   --ion-color-negclaro-rgb: 41,41,41;
   --ion-color-negclaro-contrast: #ffffff;
   --ion-color-negclaro-contrast-rgb: 255,255,255;
   --ion-color-negclaro-shade: #242424;
   --ion-color-negclaro-tint: #3e3e3e;
+
+  /** Color negro claro **/
+  --ion-color-negro: #000000;
+  --ion-color-negro-rgb: 0,0,0;
+  --ion-color-negro-contrast: #ffffff;
+  --ion-color-negro-contrast-rgb: 255,255,255;
+  --ion-color-negro-shade: #000000;
+  --ion-color-negro-tint: #1a1a1a
 
 }
 
@@ -158,5 +166,14 @@
   --ion-color-contrast-rgb: var(--ion-color-negclaro-contrast-rgb) !important;
   --ion-color-shade: var(--ion-color-negclaro-shade) !important;
   --ion-color-tint: var(--ion-color-negclaro-tint) !important;
+}
+
+.ion-color-negro {
+  --ion-color-base: var(--ion-color-negro) !important;
+  --ion-color-base-rgb: var(--ion-color-negro-rgb) !important;
+  --ion-color-contrast: var(--ion-color-negro-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-negro-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-negro-shade) !important;
+  --ion-color-tint: var(--ion-color-negro-tint) !important;
 }
 

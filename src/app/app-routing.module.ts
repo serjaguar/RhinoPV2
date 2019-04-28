@@ -21,7 +21,7 @@ const routes: Routes = [
   },
   { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule',canActivate: [NologinGuard] },
   { path: 'registro', loadChildren: './componentes/registro/registro.module#RegistroPageModule',canActivate: [NologinGuard] },
-  { path: 'recuperar', loadChildren: './componentes/recuperar/recuperar.module#RecuperarPageModule' },
+  { path: 'recuperar', loadChildren: './componentes/recuperar/recuperar.module#RecuperarPageModule',canActivate: [NologinGuard] },
 ];
 
 @NgModule({

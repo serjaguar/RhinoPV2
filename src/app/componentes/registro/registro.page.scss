@@ -8,11 +8,11 @@
     --highlight-color-focused: #F8DD00;
   }
 
-  .mensaerr{
-      font-size: 0.9em;
-      color: #F5DB23;
-      text-align: center;
-  }
+.mensaerr{
+    font-size: 0.9em;
+    color: #F5DB23;
+    text-align: center;
+}
 
 .botonce{
     text-align: center;
@@ -37,6 +37,9 @@ ion-button{
   box-shadow: none !important;
 }
 
-ion-alert {
- --background: red !important;
+.logo{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  color: #171717;
 }

@@ -30,6 +30,7 @@ export class RecuperarPage implements OnInit {
     const alert = await this.alertController.create({
       header: 'Rhino PV',
       // subHeader: 'Problemas al iniciar la sesion',
+      cssClass: "login-alert",
       message: errores,
       buttons: ['OK']
     });
@@ -46,6 +47,8 @@ export class RecuperarPage implements OnInit {
       console.log("contenido " + res);
       
       this.router.navigate(['/login']);
+      this.presentAlert("Se ha enviado un correo con las indicaciones para restablecer la contraseña");
+
   
       }).catch(err => {
         

@@ -55,6 +55,11 @@ export class AppComponent {
       title: 'Ayuda',
       url: '/list',
       icon: '/assets/imagenes/help.png'
+    },
+    {
+      title: 'Nuevo',
+      url: '/list',
+      icon: '/assets/imagenes/help.png'
     }
   ];
 
