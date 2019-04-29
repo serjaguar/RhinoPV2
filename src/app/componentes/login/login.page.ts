@@ -3,6 +3,7 @@ import { AuthService } from "../../servicios/auth.service";
 import { Router } from "@angular/router";
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginPage implements OnInit {
 
   constructor(private authService:AuthService,public router: Router,
               public toastController: ToastController,
-              public alertController: AlertController) {
+              public alertController: AlertController,
+              private menuCtrl: MenuController) {
   }
 
   async presentToast(mensaje) {
@@ -42,6 +44,10 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(false);
   }
 
   onSubmitLogin(){

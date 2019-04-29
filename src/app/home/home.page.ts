@@ -3,6 +3,7 @@ import { AuthService } from "../servicios/auth.service";
 import { TodoService } from "../servicios/todo.service";
 import { ModalController } from "@ionic/angular";
 import { ActivatedRoute } from "@angular/router";
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomePage implements OnInit{
   public UserId: null;
 
   constructor(public authservice : AuthService, public todoService: TodoService,
-              private modal: ModalController, private route: ActivatedRoute){}
+              private modal: ModalController, private route: ActivatedRoute,
+              private menuCtrl: MenuController){}
 
   Onlogout(){
     this.authservice.logout();
@@ -38,5 +40,10 @@ export class HomePage implements OnInit{
     })
     console.log("Hola " + this.authservice.UserId);
   }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(true);
+  }
+
 
 }
