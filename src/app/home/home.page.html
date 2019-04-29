@@ -6,7 +6,7 @@
       <ion-title *ngIf="!isSearchbarOpened">
         <b>Caja</b>
       </ion-title>
-      <ion-searchbar color="fondon" *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false"></ion-searchbar>
+      <ion-searchbar color="fondon" *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false" placeholder="Buscar"></ion-searchbar>
       <ion-buttons slot="end">
         <ion-button  slot="primary" fill="solid" *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true" color="fondon">
           <ion-icon name="search" slot="icon-only"></ion-icon>
@@ -15,7 +15,7 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
+  <ion-content (click)="isSearchbarOpened=false">
     <hr class="linea"/>
       
     <ion-grid style="background:#F7F7F7">

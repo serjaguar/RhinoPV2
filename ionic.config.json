@@ -1,5 +1,7 @@
 {
   "name": "RhinoPV",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

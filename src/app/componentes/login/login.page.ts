@@ -11,14 +11,15 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  email:string;
-  password:string;
+  public email:string;
+  public password:string;
   mensaje:string;
 
 
   constructor(private authService:AuthService,public router: Router,
               public toastController: ToastController,
-              public alertController: AlertController) { }
+              public alertController: AlertController) {
+  }
 
   async presentToast(mensaje) {
     const toast = await this.toastController.create({
@@ -47,6 +48,8 @@ export class LoginPage implements OnInit {
     this.authService.login(this.email,this.password).then(res => {
       // console.log("contenido " + this.authService.UserId);
       
+      this.email="";
+      this.password="";
       this.router.navigate(['/home']);
 
       // this.presentToast("Bienvenido: " + this.registroForm.value.nombre);
@@ -81,4 +84,15 @@ export class LoginPage implements OnInit {
            
     }    
 
+    onRecupera(){
+      this.email="";
+      this.password="";
+      this.router.navigate(['/recuperar']);
+    }
+    
+    onRegistra(){
+      this.email="";
+      this.password="";
+      this.router.navigate(['/registro']);
+    }
 }
