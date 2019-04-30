@@ -1,0 +1,41 @@
+.linea {
+    margin: 0px;
+    height: 7px;
+    background-color: #F8DD00;
+}
+
+.descrip {
+    font-size: 12px;
+    color: #7C7C7C;
+}
+
+// ion-card .posicionCS{
+
+.card-background-page {
+
+    ion-card {
+        margin: 3%;
+        padding-top: 2px;
+        padding-left: 0px;
+    }
+
+    .card-title {
+        top: 0%;
+        height: 10;
+        width: 100%;
+    }
+
+    .card-subtitle {
+        top: 0%;
+        height: 10;
+        width: 100%;
+    }
+    ion-col {
+        padding-top: 0px;
+    }
+
+}
+
+ion-col {
+    padding-top: 0px;
+}

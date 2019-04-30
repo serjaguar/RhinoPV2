@@ -9,6 +9,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 })
 export class ListPage implements OnInit {
   foto: any;
+  image:any=''
   constructor(private camera: Camera) {}
 
   ngOnInit() {
@@ -16,10 +17,17 @@ export class ListPage implements OnInit {
 
   hacerFoto() {
     const options: CameraOptions = {
-      destinationType: this.camera.DestinationType.DATA_URL
+      quality: 100,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE,
+      targetWidth: 100,
+      targetHeight: 100,
+      allowEdit : true,
+      saveToPhotoAlbum: true
     }
     this.camera.getPicture(options).then((imageData) => {
-      this.foto = 'data:image/jpeg;base64,' + imageData;
+      this.image=(<any>window).Ionic.WebView.convertFileSrc(imageData);
     }, (err) => {
       console.log(err);
     });
