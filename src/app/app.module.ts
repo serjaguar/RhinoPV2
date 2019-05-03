@@ -13,13 +13,13 @@ import { firebaseConfig } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule, FirestoreSettingsToken} from "@angular/fire/firestore";
-
 import { Camera } from '@ionic-native/camera/ngx';
+import { DetaproComponent } from "./componentes/detapro/detapro.component";
 
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, DetaproComponent],
+  entryComponents: [ DetaproComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

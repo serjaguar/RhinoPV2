@@ -16,20 +16,20 @@
 
     <hr class="linea"/>
 
-  <ion-card>
+  <ion-card *ngFor = "let prod of product" (click)="openProducts(prod)">
 
     <!-- Primera linea de productos -->
 
     <ion-grid>
       <ion-row>
         <ion-col size="3">
-          <ion-img src="assets/imagenes/bascula.png" style="width: 50px; height: 50px;"></ion-img>
+          <ion-img [src]="prod.foto_prod" style="width: 50px; height: 50px;"></ion-img>
         </ion-col>
         <ion-col size="9">
           <br>
-          <ion-label color="fondon"><b>Bascula Bar-RS</b></ion-label>
+          <ion-label color="fondon"><b>{{prod.marca}}</b></ion-label>
           <br>
-          <ion-label class="descrip"><b>Rhino | BAC-20</b></ion-label>
+          <ion-label class="descrip"><b>{{prod.descripcion}}</b></ion-label>
         </ion-col>
         <ion-col>
 
@@ -43,15 +43,15 @@
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <!-- </ion-col> -->
                 <!-- <ion-col size="7"> -->
-                  <ion-label class="redondo" style="font-size: 10px;" color="griso">JHGS573DU</ion-label>
+                  <ion-label class="redondo" style="font-size: 10px;" color="griso">{{prod.cod_barr}}</ion-label>
                   <br>
                   <ion-label color="griso"><b>Descuento:</b></ion-label>
                   &nbsp;&nbsp;
-                  <ion-label class="redondo" style="font-size: 10px;" color="griso">20%</ion-label>
+                  <ion-label class="redondo" style="font-size: 10px;" color="griso">-</ion-label>
                 </ion-col>
                 <ion-col align-self-center class="ultCol">
                   <!-- <ion-label style="font-size: 15px;" color="fondon"><b>$1,263.00</b></ion-label> -->
-                  <b>$1,263.00</b>
+                  <b>${{prod.precio_venta}}</b>
                 </ion-col>
               </ion-row>
             </ion-grid>
