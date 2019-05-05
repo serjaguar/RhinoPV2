@@ -8,11 +8,23 @@ import { NavParams, ModalController } from "@ionic/angular";
 })
 export class DetaproComponent implements OnInit {
 
-  constructor(private modal: ModalController,) { }
+  public marca: string;
 
-  ngOnInit() {}
+  constructor(private modal: ModalController,
+              private navparams: NavParams) { }
+
+  ngOnInit() {
+
+    this.marca = this.navparams.get("marca");
+
+  }
 
   closeChat() {
     this.modal.dismiss()
   }
+
+  onSubmit(){
+    console.log("Este es el chingon")
+  }
+
 }

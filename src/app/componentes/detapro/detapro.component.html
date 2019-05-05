@@ -1,8 +1,18 @@
 <ion-header>
-    <ion-toolbar color="tertiary">
+    <ion-toolbar color="fondon">
       <ion-button slot="start" fill="clear" (click)="closeChat()">
         <ion-icon style="color:#fff; font-size: 25px" name="arrow-round-back"></ion-icon>
       </ion-button>
-      <ion-title>{{prod.marca}}</ion-title>
+      <ion-title>{{marca}}</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
+<ion-content>
+    <ion-button (click)="onSubmit()">Default</ion-button>
+    <br>
+    <ion-button fill="clear" expand="full">
+        <span class="izquierda">
+          <ion-icon slot="start" name="star"></ion-icon>
+          Left Icon
+        </span>
+    </ion-button>
+</ion-content>
