@@ -10,9 +10,11 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class ListPage implements OnInit {
   foto: any;
   image:any=''
+  imageS: "assets/imagenes/sinimagen.jpg"
   constructor(private camera: Camera) {}
 
   ngOnInit() {
+    this.image="assets/imagenes/sinimagen.jpg"
   }
 
   hacerFoto() {

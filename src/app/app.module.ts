@@ -15,18 +15,22 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule, FirestoreSettingsToken} from "@angular/fire/firestore";
 import { Camera } from '@ionic-native/camera/ngx';
 import { DetaproComponent } from "./componentes/detapro/detapro.component";
+import { AltaproComponent } from "./componentes/altapro/altapro.component";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
-  declarations: [AppComponent, DetaproComponent],
-  entryComponents: [ DetaproComponent],
+  declarations: [AppComponent, DetaproComponent, AltaproComponent],
+  entryComponents: [ DetaproComponent, AltaproComponent ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule, 
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductosService,productos } from "../../servicios/productos.service";
 import { ModalController } from "@ionic/angular";
 import { DetaproComponent } from "../../componentes/detapro/detapro.component";
+import { AltaproComponent } from "../../componentes/altapro/altapro.component";
 
 
 @Component({
@@ -29,6 +30,12 @@ export class ProductosPage implements OnInit {
       componentProps : {
         marca : prod.marca
       }
+    }).then ( (modal) => modal.present())
+  }
+
+  openAltProd(){
+    this.modal.create({
+      component: AltaproComponent
     }).then ( (modal) => modal.present())
   }
 

@@ -1,0 +1,105 @@
+<ion-header>
+    <ion-toolbar color="fondon">
+    <ion-button slot="start" fill="clear" (click)="closeChat()">
+      <ion-icon style="color:#fff; font-size: 25px" name="arrow-round-back"></ion-icon>
+    </ion-button>
+    <ion-title>Alta de productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+<ion-content>
+  <hr class="linea"/>
+
+  <form [formGroup]="altproForm">
+    <ion-card color="fondcla">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5">
+              <!-- formControlName="foto" -->
+            <ion-img [src]="image" *ngIf="image" style="width: 130px; height: 100px" (click)="hacerFoto()"></ion-img>
+          </ion-col>
+          <ion-col size="7">
+            <ion-item color="fondcla">
+              <ion-label position="floating">Nombre producto</ion-label>
+              <ion-input formControlName="nombre" type="text"></ion-input>
+            </ion-item>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Marca</ion-label>
+              <ion-input formControlName="marca" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="10">
+            <ion-item color="fondcla">
+              <ion-label position="floating">Código de producto</ion-label>
+              <ion-input formControlName="codigo" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col align-self-center size="2">
+            <ion-button fill="clear" color="griso">
+              <ion-icon slot="icon-only" name="barcode"></ion-icon>
+            </ion-button>                
+          </ion-col> 
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Alias</ion-label>
+              <ion-input formControlName="alias" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Departamento</ion-label>
+              <ion-input formControlName="departamento" type="text"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio costo $</ion-label>
+              <ion-input formControlName="precosto" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio venta $</ion-label>
+              <ion-input formControlName="preventa" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio mayoreo $</ion-label>
+              <ion-input formControlName="premayor" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Cantidad actual</ion-label>
+              <ion-input formControlName="cantactual" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Cantidad mínima</ion-label>
+              <ion-input formControlName="cantminima" type="number"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+    <ion-button (click)="valores()">Hacer foto</ion-button>
+  </form>
+</ion-content>
