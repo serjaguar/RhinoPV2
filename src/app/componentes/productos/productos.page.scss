@@ -41,7 +41,7 @@ ion-col {
 }
 
 .ultCol{
-    background-color: #e8e8ea;
+    background: #e8e8ea;
 }
 
 .redondo{
@@ -55,4 +55,16 @@ ion-col {
     box-shadow: none ;
     background-color: #e8e8ea;
     font-size: 10px;
+}
+
+.cuadro{
+    padding-right: 30px;
+    border: 1px solid #e8e8ea;
+    box-shadow: none ;
+    background-color: #e8e8ea;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

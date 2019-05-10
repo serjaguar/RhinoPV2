@@ -39,15 +39,12 @@ export class AltaproComponent implements OnInit {
       ])),
       precosto: new FormControl('',Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]+$')
       ])),
       preventa: new FormControl('',Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]+$')
       ])),
       premayor: new FormControl('',Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]+$')
       ])),
       cantactual: new FormControl('',Validators.compose([
         Validators.required,
@@ -55,7 +52,6 @@ export class AltaproComponent implements OnInit {
       ])),
       cantminima: new FormControl('',Validators.compose([
         Validators.required,
-        Validators.pattern('^[0-9]+$')
       ]))
     })
 
