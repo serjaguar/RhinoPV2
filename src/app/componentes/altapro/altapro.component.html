@@ -31,13 +31,13 @@
         </ion-row>
         <ion-row>
           <ion-col size="10">
-            <ion-item color="fondcla">
-              <ion-label position="floating">Código de producto</ion-label>
-              <ion-input formControlName="codigo" type="text"></ion-input>
-            </ion-item>
+            <!-- <ion-item color="fondcla" *ngIf="scannedData"> -->
+              <!-- <ion-label position="floating">Código de producto</ion-label> -->
+              <ion-input formControlName="codigo" placeholder="Código de producto" type="text" *ngIf="scannedData || !scannedData" [ngModel]="scannedData['text']"></ion-input>
+            <!-- </ion-item> -->
           </ion-col>
           <ion-col align-self-center size="2">
-            <ion-button fill="clear" color="griso">
+            <ion-button fill="clear" color="griso" (click)="scanCode()">
               <ion-icon slot="icon-only" name="barcode"></ion-icon>
             </ion-button>                
           </ion-col> 

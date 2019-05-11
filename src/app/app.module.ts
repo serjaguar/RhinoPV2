@@ -17,6 +17,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { DetaproComponent } from "./componentes/detapro/detapro.component";
 import { AltaproComponent } from "./componentes/altapro/altapro.component";
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { FormsModule,ReactiveFormsModule } from "@angular/forms";
   providers: [
     StatusBar,
     SplashScreen,
+    BarcodeScanner,
     Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: FirestoreSettingsToken, useValue: {} },

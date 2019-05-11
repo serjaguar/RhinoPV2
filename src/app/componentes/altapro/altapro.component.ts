@@ -3,6 +3,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 import { ModalController } from "@ionic/angular";
+import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
 
 @Component({
   selector: 'app-altapro',
@@ -14,11 +15,17 @@ export class AltaproComponent implements OnInit {
 
   image: any;
   altproForm: FormGroup;
+  encodeData: any;
+  scannedData: {};
+  barcodeScannerOptions: BarcodeScannerOptions;
+  codigo: string;
+
 
   constructor(
     private camera: Camera,
     public formBuilder: FormBuilder,
-    private modal: ModalController
+    private modal: ModalController,
+    private barcodeScanner: BarcodeScanner
   ) {
 
     this.altproForm = this.formBuilder.group({
@@ -28,7 +35,7 @@ export class AltaproComponent implements OnInit {
       marca: new FormControl('',Validators.compose([
         Validators.required
       ])),
-      codigo: new FormControl('',Validators.compose([
+      codigo: new FormControl('Hola',Validators.compose([
         Validators.required
       ])),
       alias: new FormControl('',Validators.compose([
@@ -53,12 +60,17 @@ export class AltaproComponent implements OnInit {
       cantminima: new FormControl('',Validators.compose([
         Validators.required,
       ]))
-    })
+    });
+
+    this.barcodeScannerOptions = {
+      showTorchButton: true,
+      showFlipCameraButton: true
+    };
 
    }
 
   ngOnInit() {
-    this.image="assets/imagenes/sinimagen.jpg"
+    this.image="assets/imagenes/foto_1.png"
   }
 
   hacerFoto() {
@@ -96,4 +108,17 @@ export class AltaproComponent implements OnInit {
   closeChat() {
     this.modal.dismiss()
   }
+
+  scanCode() {
+    this.barcodeScanner.scan().then(barcodeData => {
+        alert("Barcode data " + JSON.stringify(barcodeData));
+        this.scannedData = barcodeData;
+        // this.codigo = barcodeData.text;
+
+
+      }).catch(err => {
+        console.log("Error", err);
+      });
+  }
+
 }
