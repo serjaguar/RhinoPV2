@@ -28,7 +28,8 @@ export class ProductosPage implements OnInit {
     this.modal.create({
       component: DetaproComponent,
       componentProps : {
-        marca : prod.marca
+        marca : prod.marca,
+        id: prod.clave
       }
     }).then ( (modal) => modal.present())
   }
