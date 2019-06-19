@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from "../../servicios/auth.service";
+import { AuthService } from '../../servicios/auth.service';
 import { auth } from 'firebase';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 
@@ -13,9 +13,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegistroPage implements OnInit {
 
-  nombre:string;
-  sexo:string;
+  nombre: string;
+  sexo: string;
   registroForm: FormGroup;
+  mail: string;
 
   error_messages = {
     'nombre': [
@@ -47,7 +48,7 @@ export class RegistroPage implements OnInit {
     'callen': [
       {type: 'required', message: 'El campo calle y numero es obligatorio.'}
     ],
-    'colinia': [
+    'colonia': [
       {type: 'required', message: 'El campo colonia es obligatorio.'}
     ],
     'municipio': [

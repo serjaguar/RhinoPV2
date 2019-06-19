@@ -2,15 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
-import { ModalController } from "@ionic/angular";
-import { BarcodeScannerOptions, BarcodeScanner } from "@ionic-native/barcode-scanner/ngx";
+import { ModalController } from '@ionic/angular';
+import { BarcodeScannerOptions, BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ProductosService } from '../../servicios/productos.service';
+import { AlertController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-altapro',
   templateUrl: './altapro.component.html',
   styleUrls: ['./altapro.component.scss'],
 })
-      
+
 export class AltaproComponent implements OnInit {
 
   image: any;
@@ -19,45 +22,47 @@ export class AltaproComponent implements OnInit {
   scannedData: {};
   barcodeScannerOptions: BarcodeScannerOptions;
   codigo: string;
-
+  img: any;
 
   constructor(
     private camera: Camera,
     public formBuilder: FormBuilder,
     private modal: ModalController,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    private productsService: ProductosService,
+    public alertController: AlertController
   ) {
 
     this.altproForm = this.formBuilder.group({
-      nombre: new FormControl('',Validators.compose([
+      nombre: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      marca: new FormControl('',Validators.compose([
+      marca: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      codigo: new FormControl('Hola',Validators.compose([
+      codigo: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      alias: new FormControl('',Validators.compose([
+      alias: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      departamento: new FormControl('',Validators.compose([
+      departamento: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      precosto: new FormControl('',Validators.compose([
+      precosto: new FormControl('', Validators.compose([
         Validators.required,
       ])),
-      preventa: new FormControl('',Validators.compose([
+      preventa: new FormControl('', Validators.compose([
         Validators.required,
       ])),
-      premayor: new FormControl('',Validators.compose([
+      premayor: new FormControl('', Validators.compose([
         Validators.required,
       ])),
-      cantactual: new FormControl('',Validators.compose([
+      cantactual: new FormControl('', Validators.compose([
         Validators.required,
         Validators.pattern('^[0-9]+$')
       ])),
-      cantminima: new FormControl('',Validators.compose([
+      cantminima: new FormControl('', Validators.compose([
         Validators.required,
       ]))
     });
@@ -69,8 +74,19 @@ export class AltaproComponent implements OnInit {
 
    }
 
+  async presentAlert(errores: string) {
+    const alert = await this.alertController.create({
+      header: 'Rhino PV',
+      // subHeader: 'Problemas al iniciar la sesion',
+      cssClass: 'login-alert',
+      message: errores,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   ngOnInit() {
-    this.image="assets/imagenes/foto_1.png"
+    this.image = 'assets/imagenes/foto_1.png'
   }
 
   hacerFoto() {
@@ -86,12 +102,13 @@ export class AltaproComponent implements OnInit {
     }
     this.camera.getPicture(options).then((imageData) => {
       this.image=(<any>window).Ionic.WebView.convertFileSrc(imageData);
+      this.img = imageData;
     }, (err) => {
       console.log(err);
     });
   }
 
-  valores(){
+  addProducts(){
     console.log(this.altproForm.value.nombre);
     console.log(this.altproForm.value.marca);
     console.log(this.altproForm.value.codigo);
@@ -103,6 +120,28 @@ export class AltaproComponent implements OnInit {
     console.log(this.altproForm.value.premayor);
     console.log(this.altproForm.value.cantactual);
     console.log(this.altproForm.value.cantminima);
+
+    this.productsService.register(
+      this.altproForm.value.nombre,
+      this.altproForm.value.marca,
+      this.altproForm.value.codigo,
+      this.altproForm.value.alias,
+      this.altproForm.value.departamento,
+      this.image,
+      this.altproForm.value.precosto,
+      this.altproForm.value.preventa,
+      this.altproForm.value.premayor,
+      this.altproForm.value.cantactual,
+      this.altproForm.value.cantminima,
+      this.img
+    ).then( pro => {
+      console.log('Respuesta: ' + pro)
+      this.presentAlert('Producto registrado correctamente');
+      this.closeChat();
+    }).catch( err => {
+      console.log('Error: ' + err);
+      this.presentAlert('Error al registrar el producto');
+    })
   }
 
   closeChat() {
@@ -111,13 +150,13 @@ export class AltaproComponent implements OnInit {
 
   scanCode() {
     this.barcodeScanner.scan().then(barcodeData => {
-        alert("Barcode data " + JSON.stringify(barcodeData));
+        // alert('Barcode data ' + JSON.stringify(barcodeData));
         this.scannedData = barcodeData;
         // this.codigo = barcodeData.text;
 
 
       }).catch(err => {
-        console.log("Error", err);
+        console.log('Error', err);
       });
   }
 
