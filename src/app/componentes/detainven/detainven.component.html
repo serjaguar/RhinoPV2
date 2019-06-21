@@ -7,3 +7,113 @@
     </ion-toolbar>
 </ion-header>
 <ion-content>
+<form [formGroup]="detinvenForm">
+    <ion-card color="fondcla">
+      <ion-grid>
+        <ion-row>
+          
+          <ion-col size="5">
+            <ion-img [src]="image" *ngIf="image" style="width: 130px; height: 100px"></ion-img>
+          </ion-col>
+          
+          <ion-col size="7">
+            <ion-item color="fondcla">
+              <ion-label position="floating">Nombre producto</ion-label>
+                <ion-input formControlName="nombre" type="text" [(ngModel)]="nombre" disabled="true"></ion-input>
+              </ion-item>
+              <ion-item color="fondcla">
+                <ion-label position="floating">Marca</ion-label>
+                <ion-input formControlName="marca" type="text" [(ngModel)]="marca" disabled="true"></ion-input>
+              </ion-item>
+          </ion-col>
+        
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="10">
+                
+            <ion-item color="fondcla">
+              <ion-label position="floating">Código de producto</ion-label>
+              <ion-input formControlName="codigo" type="text" [(ngModel)]="cod_barr" disabled="true"></ion-input>
+            </ion-item>
+    
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Alias</ion-label>
+              <ion-input formControlName="alias" type="text"[(ngModel)]="alias" disabled="true"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Departamento</ion-label>
+              <ion-input formControlName="departamento" type="text"[(ngModel)]="departamento" disabled="true"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio costo $</ion-label>
+              <ion-input formControlName="precosto" type="number" [(ngModel)]="precio_costo"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio venta $</ion-label>
+              <ion-input formControlName="preventa" type="number" [(ngModel)]="precio_venta"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio mayoreo $</ion-label>
+              <ion-input formControlName="premayor" type="number" [(ngModel)]="precio_mayoreo"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Cantidad minima</ion-label>
+              <ion-input formControlName="cantact" type="number" [(ngModel)]="cant_min"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Cantidad actual</ion-label>
+              <ion-input formControlName="cantmin" type="number" [(ngModel)]="cant_actual"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card>
+    <br>
+  </form>
+      <!-- <ion-button (click)="eliminaProducto()">Eliminar</ion-button>
+      <ion-button (click)="actualizaProducto()">Actualizar</ion-button> -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="amafue"><ion-icon name="arrow-dropup"></ion-icon></ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="actualizaProducto()"><ion-icon name="save"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>
