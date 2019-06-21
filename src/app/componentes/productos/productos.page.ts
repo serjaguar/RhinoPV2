@@ -24,7 +24,7 @@ export class ProductosPage implements OnInit {
   }
 
   openProducts(prod){
-    console.log("Si entra antes del error")
+    console.log('Si entra antes del error: ' + this.product[1]);
     this.modal.create({
       component: DetaproComponent,
       componentProps : {
@@ -39,7 +39,8 @@ export class ProductosPage implements OnInit {
         precio_costo: prod.precio_costo,
         precio_mayoreo: prod.precio_mayoreo,
         precio_venta: prod.precio_venta,
-        tipventa: prod.tipventa
+        tipventa: prod.tipventa,
+        id: prod.id
       }
     }).then ( (modal) => modal.present())
   }

@@ -20,11 +20,11 @@
           <ion-col size="7">
             <ion-item color="fondcla">
               <ion-label position="floating">Nombre producto</ion-label>
-                <ion-input formControlName="nombre" type="text">{{nombre}}</ion-input>
+                <ion-input formControlName="nombre" type="text" [(ngModel)]="nombre"></ion-input>
               </ion-item>
               <ion-item color="fondcla">
                 <ion-label position="floating">Marca</ion-label>
-                <ion-input formControlName="marca" type="text">{{marca}}</ion-input>
+                <ion-input formControlName="marca" type="text" [(ngModel)]="marca"></ion-input>
               </ion-item>
           </ion-col>
         
@@ -35,10 +35,10 @@
                 
             <ion-item color="fondcla" *ngIf="!scannedData">
               <ion-label position="floating">Código de producto</ion-label>
-              <ion-input formControlName="codigo" type="text">{{cod_barr}}</ion-input>
+              <ion-input formControlName="codigo" type="text" [(ngModel)]="cod_barr"></ion-input>
             </ion-item>
     
-            <ion-input formControlName="codigo" placeholder="Código de producto" type="text" *ngIf="scannedData" [ngModel]="scannedData['text']">{{cod_barr}}</ion-input>
+            <ion-input formControlName="codigo" placeholder="Código de producto" type="text" *ngIf="scannedData" [ngModel]="scannedData['text']"></ion-input>
     
           </ion-col>
 
@@ -59,10 +59,10 @@
           <ion-col>
             <ion-radio-group formControlName="tipventa">
                 <ion-item color="fondcla"
-                  *ngFor="let item of radio_list" 
-                  (ionFocus)="radioFocus()"
-                  (ionSelect)="radioSelect($event)"
-                  (ionBlur)="radioBlur()">
+                *ngFor="let item of radio_list" 
+                (ionFocus)="radioFocus()"
+                (ionSelect)="radioSelect($event)"
+                (ionBlur)="radioBlur()">
                   <ion-label>{{item.text}}</ion-label>
                   <ion-radio 
                       slot="start" 
@@ -81,7 +81,7 @@
           <ion-col>
             <ion-item color="fondcla">
               <ion-label position="floating">Alias</ion-label>
-              <ion-input formControlName="alias" type="text">{{alias}}</ion-input>
+              <ion-input formControlName="alias" type="text"[(ngModel)]="alias"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -90,7 +90,7 @@
           <ion-col>
             <ion-item color="fondcla">
               <ion-label position="floating">Departamento</ion-label>
-              <ion-input formControlName="departamento" type="text">{{departamento}}</ion-input>
+              <ion-input formControlName="departamento" type="text"[(ngModel)]="departamento"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -99,7 +99,7 @@
           <ion-col>
             <ion-item color="fondcla">
               <ion-label position="floating">Precio costo $</ion-label>
-              <ion-input formControlName="precosto" type="number">{{precio_costo}}</ion-input>
+              <ion-input formControlName="precosto" type="number" [(ngModel)]="precio_costo"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -108,7 +108,7 @@
           <ion-col>
             <ion-item color="fondcla">
               <ion-label position="floating">Precio venta $</ion-label>
-              <ion-input formControlName="preventa" type="number">{{precio_venta}}</ion-input>
+              <ion-input formControlName="preventa" type="number" [(ngModel)]="precio_venta"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
@@ -117,31 +117,25 @@
           <ion-col>
             <ion-item color="fondcla">
               <ion-label position="floating">Precio mayoreo $</ion-label>
-              <ion-input formControlName="premayor" type="number">{{precio_mayoreo}}</ion-input>
+              <ion-input formControlName="premayor" type="number" [(ngModel)]="precio_mayoreo"></ion-input>
             </ion-item>
           </ion-col>
         </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-item color="fondcla">
-              <ion-label position="floating">Cantidad actual</ion-label>
-              <ion-input formControlName="cantactual" type="number">{{cant_actual}}</ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
-
-        <ion-row>
-          <ion-col>
-            <ion-item color="fondcla">
-              <ion-label position="floating">Cantidad mínima</ion-label>
-              <ion-input formControlName="cantminima" type="number">{{cant_min}}</ion-input>
-            </ion-item>
-          </ion-col>
-        </ion-row>
+        
       </ion-grid>
     </ion-card>
     <br>
   </form>
-    
+  <!-- <ion-button (click)="eliminaProducto()">Eliminar</ion-button>
+  <ion-button (click)="actualizaProducto()">Actualizar</ion-button> -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="amafue"><ion-icon name="arrow-dropup"></ion-icon></ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="actualizaProducto()"><ion-icon name="save"></ion-icon></ion-fab-button>
+        <ion-fab-button (click)="eliminaProducto()" ><ion-icon name="trash"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+
+
 </ion-content>

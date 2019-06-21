@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { app } from 'firebase';
 import { map } from 'rxjs/operators';
-import { reject } from 'q';
+import { reject, resolve } from 'q';
 import { storage } from 'firebase';
 
 
@@ -34,11 +34,11 @@ export class ProductosService {
     return this.db.collection('products').snapshotChanges().pipe(map(prod => {
       return prod.map(a => {
         const data = a.payload.doc.data() as productos;
-        data.id = a.payload.doc.id
-        return data
+        data.id = a.payload.doc.id;
+        console.log('data.id: ' + data.id);
+        return data;
       })
     }))
-  
   }
 
   register(nombre: string, marca: string, codigo: string, tipventa: string,
@@ -55,7 +55,6 @@ export class ProductosService {
         cod_barr: codigo,
         alias: alias,
         departamento: departamento,
-        // form_venta: formavta,
         foto_prod: imagen,
         precio_costo: precosto,
         precio_venta: preventa,
@@ -76,5 +75,30 @@ export class ProductosService {
     const selfieRef = storage().ref('pictures/sugerencias');
     selfieRef.putString(imageData, 'base64', {contentType: 'image/png'});
     console.log('direccion: ' + selfieRef.getDownloadURL);
+  }
+
+  removeProducts(id: string){
+    return this.db.collection('products').doc(id).delete();
+  }
+
+  updateProducts(nombre: string, marca: string, codigo: string, tipventa: string,
+    alias: string, departamento: string, imagen: string, precosto: number,
+    preventa: number, premayor: number, cantactual: number,
+    cantminima: number, id: string){
+
+    return this.db.collection('products').doc(id).update({
+        descripcion: nombre,
+        marca: marca,
+        tipventa: tipventa,
+        cod_barr: codigo,
+        alias: alias,
+        departamento: departamento,
+        foto_prod: imagen,
+        precio_costo: precosto,
+        precio_venta: preventa,
+        precio_mayoreo: premayor,
+        cant_actual: cantactual,
+        cant_min: cantminima
+      });
   }
 }

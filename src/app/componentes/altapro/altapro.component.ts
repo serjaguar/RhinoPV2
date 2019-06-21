@@ -175,7 +175,6 @@ export class AltaproComponent implements OnInit {
       this.altproForm.value.cantminima,
       this.img
     ).then( pro => {
-      console.log('Respuesta: ' + pro)
       this.presentAlert('Producto registrado correctamente');
       this.closeChat();
     }).catch( err => {
