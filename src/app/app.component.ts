@@ -23,7 +23,7 @@ export class AppComponent {
     },
     {
       title: 'Inventario',
-      url: '/list',
+      url: '/inventario',
       icon: '/assets/imagenes/stock.png'
     },
     {

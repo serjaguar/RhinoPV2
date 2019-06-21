@@ -1,0 +1,70 @@
+.linea {
+    margin: 0px;
+    height: 7px;
+    background-color: #F8DD00;
+}
+
+.descrip {
+    font-size: 12px;
+    color: #7C7C7C;
+}
+
+// ion-card .posicionCS{
+
+.card-background-page {
+
+    ion-card {
+        margin: 3%;
+        padding-top: 2px;
+        padding-left: 0px;
+    }
+
+    .card-title {
+        top: 0%;
+        height: 10;
+        width: 100%;
+    }
+
+    .card-subtitle {
+        top: 0%;
+        height: 10;
+        width: 100%;
+    }
+    ion-col {
+        padding-top: 0px;
+    }
+
+}
+
+ion-col {
+    padding-top: 0px;
+}
+
+.ultCol{
+    background: #e8e8ea;
+}
+
+.redondo{
+    border-radius: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 1px;
+    margin-bottom: 0px;
+    border: 1px solid #e8e8ea;
+    border-bottom: 0px;
+    box-shadow: none ;
+    background-color: #e8e8ea;
+    font-size: 10px;
+}
+
+.cuadro{
+    padding-right: 30px;
+    border: 1px solid #e8e8ea;
+    box-shadow: none ;
+    background-color: #e8e8ea;
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

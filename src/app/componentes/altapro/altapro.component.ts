@@ -26,11 +26,15 @@ export class AltaproComponent implements OnInit {
   tipo_prod: string;
 
   defaultSelectedRadio = 'radio_2';
-  //Get value on ionChange on IonRadioGroup
+
+  // Get value on ionChange on IonRadioGroup
+
   selectedRadioGroup:any;
+
   //Get value on ionSelect on IonRadio item
-  selectedRadioItem:any;
- 
+
+  selectedRadioItem: any;
+
   radio_list = [
     {
       id: '1',
@@ -124,7 +128,7 @@ export class AltaproComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.image = 'assets/imagenes/foto_1.png'
+    this.image = 'assets/imagenes/foto_1.png';
   }
 
   hacerFoto() {

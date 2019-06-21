@@ -19,10 +19,11 @@ const routes: Routes = [
     loadChildren: './list/list.module#ListPageModule',
     canActivate: [AuthGuard]
   },
-  { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule',canActivate: [NologinGuard] },
-  { path: 'registro', loadChildren: './componentes/registro/registro.module#RegistroPageModule',canActivate: [NologinGuard] },
-  { path: 'recuperar', loadChildren: './componentes/recuperar/recuperar.module#RecuperarPageModule',canActivate: [NologinGuard] },
-  { path: 'productos', loadChildren: './componentes/productos/productos.module#ProductosPageModule' }
+  { path: 'login', loadChildren: './componentes/login/login.module#LoginPageModule', canActivate: [NologinGuard] },
+  { path: 'registro', loadChildren: './componentes/registro/registro.module#RegistroPageModule', canActivate: [NologinGuard] },
+  { path: 'recuperar', loadChildren: './componentes/recuperar/recuperar.module#RecuperarPageModule', canActivate: [NologinGuard] },
+  { path: 'productos', loadChildren: './componentes/productos/productos.module#ProductosPageModule', canActivate: [AuthGuard] },
+  { path: 'inventario', loadChildren: './componentes/inventario/inventario.module#InventarioPageModule',canActivate: [AuthGuard] }
 ];
 
 @NgModule({

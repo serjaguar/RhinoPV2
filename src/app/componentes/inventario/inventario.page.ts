@@ -1,21 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductosService,productos } from '../../servicios/productos.service';
 import { ModalController } from '@ionic/angular';
-import { DetaproComponent } from '../../componentes/detapro/detapro.component';
-import { AltaproComponent } from '../../componentes/altapro/altapro.component';
-
+import { DetainvenComponent } from '../../componentes/detainven/detainven.component';
 
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.page.html',
-  styleUrls: ['./productos.page.scss'],
+  selector: 'app-inventario',
+  templateUrl: './inventario.page.html',
+  styleUrls: ['./inventario.page.scss'],
 })
-export class ProductosPage implements OnInit {
+export class InventarioPage implements OnInit {
 
   public product: any = [];
 
   constructor(public productosService: ProductosService,
-              private modal: ModalController) { }
+              private modal: ModalController
+  ) { }
 
   ngOnInit() {
     this.productosService.getProducts().subscribe( prod =>{
@@ -23,10 +22,10 @@ export class ProductosPage implements OnInit {
     })
   }
 
-  openProducts(prod){
+  openInventario(prod){
     console.log('Si entra antes del error: ' + this.product[1]);
     this.modal.create({
-      component: DetaproComponent,
+      component: DetainvenComponent,
       componentProps : {
         marca : prod.marca,
         alias: prod.alias,
@@ -42,12 +41,6 @@ export class ProductosPage implements OnInit {
         tipventa: prod.tipventa,
         id: prod.id
       }
-    }).then ( (modal) => modal.present())
-  }
-
-  openAltProd(){
-    this.modal.create({
-      component: AltaproComponent
     }).then ( (modal) => modal.present())
   }
 
