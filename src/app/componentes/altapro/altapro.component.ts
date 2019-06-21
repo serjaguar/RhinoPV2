@@ -23,6 +23,41 @@ export class AltaproComponent implements OnInit {
   barcodeScannerOptions: BarcodeScannerOptions;
   codigo: string;
   img: any;
+  tipo_prod: string;
+
+  defaultSelectedRadio = 'radio_2';
+  //Get value on ionChange on IonRadioGroup
+  selectedRadioGroup:any;
+  //Get value on ionSelect on IonRadio item
+  selectedRadioItem:any;
+ 
+  radio_list = [
+    {
+      id: '1',
+      name: 'radio_list',
+      value: '1',
+      text: 'Por Unidad/Pza',
+      disabled: false,
+      checked: false,
+      color: 'amafue'
+    }, {
+      id: '2',
+      name: 'radio_list',
+      value: '2',
+      text: 'A Granel (Usa decimales)',
+      disabled: false,
+      checked: false,
+      color: 'amafue'
+    }, {
+      id: '3',
+      name: 'radio_list',
+      value: '3',
+      text: 'Como paquete (kit)',
+      disabled: false,
+      checked: false,
+      color: 'amafue'
+    },
+  ];
 
   constructor(
     private camera: Camera,
@@ -41,6 +76,9 @@ export class AltaproComponent implements OnInit {
         Validators.required
       ])),
       codigo: new FormControl('', Validators.compose([
+        Validators.required
+      ])),
+      tipventa: new FormControl('', Validators.compose([
         Validators.required
       ])),
       alias: new FormControl('', Validators.compose([
@@ -112,9 +150,10 @@ export class AltaproComponent implements OnInit {
     console.log(this.altproForm.value.nombre);
     console.log(this.altproForm.value.marca);
     console.log(this.altproForm.value.codigo);
+    console.log(this.altproForm.value.tipventa);
     console.log(this.altproForm.value.alias);
     console.log(this.altproForm.value.departamento);
-    console.log("foto: " + this.image);
+    console.log('foto: ' + this.image);
     console.log(this.altproForm.value.precosto);
     console.log(this.altproForm.value.preventa);
     console.log(this.altproForm.value.premayor);
@@ -125,6 +164,7 @@ export class AltaproComponent implements OnInit {
       this.altproForm.value.nombre,
       this.altproForm.value.marca,
       this.altproForm.value.codigo,
+      this.altproForm.value.tipventa,
       this.altproForm.value.alias,
       this.altproForm.value.departamento,
       this.image,
@@ -158,6 +198,28 @@ export class AltaproComponent implements OnInit {
       }).catch(err => {
         console.log('Error', err);
       });
+  }
+
+  radioGroupChange(event) {
+    console.log('radioGroupChange',event.detail);
+    this.selectedRadioGroup = event.detail;
+  }
+ 
+  radioFocus() {
+    console.log('radioFocus');
+  }
+  radioSelect(event) {
+    console.log('radioSelect',event.detail);
+    console.log('radioSelect',event.detail.value);
+    this.tipo_prod = event.detail.value;
+    this.selectedRadioItem = event.detail;
+  }
+  radioBlur() {
+    console.log('radioBlur');
+  }
+
+  limpiar(){
+    this.altproForm.reset();
   }
 
 }

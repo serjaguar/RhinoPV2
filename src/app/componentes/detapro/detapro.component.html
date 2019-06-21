@@ -3,17 +3,145 @@
       <ion-button slot="start" fill="clear" (click)="closeChat()">
         <ion-icon style="color:#fff; font-size: 25px" name="arrow-round-back"></ion-icon>
       </ion-button>
-      <ion-title>{{marca}}</ion-title>
+      <ion-title>{{nombre}}</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content>
-    <ion-button (click)="onSubmit()">Default</ion-button>
+
+  <form [formGroup]="detalproForm">
+    <ion-card color="fondcla">
+      <ion-grid>
+        <ion-row>
+          
+          <ion-col size="5">
+            <ion-img [src]="image" *ngIf="image" style="width: 130px; height: 100px" (click)="hacerFoto()"></ion-img>
+          </ion-col>
+          
+          <ion-col size="7">
+            <ion-item color="fondcla">
+              <ion-label position="floating">Nombre producto</ion-label>
+                <ion-input formControlName="nombre" type="text">{{nombre}}</ion-input>
+              </ion-item>
+              <ion-item color="fondcla">
+                <ion-label position="floating">Marca</ion-label>
+                <ion-input formControlName="marca" type="text">{{marca}}</ion-input>
+              </ion-item>
+          </ion-col>
+        
+        </ion-row>
+        
+        <ion-row>
+          <ion-col size="10">
+                
+            <ion-item color="fondcla" *ngIf="!scannedData">
+              <ion-label position="floating">Código de producto</ion-label>
+              <ion-input formControlName="codigo" type="text">{{cod_barr}}</ion-input>
+            </ion-item>
+    
+            <ion-input formControlName="codigo" placeholder="Código de producto" type="text" *ngIf="scannedData" [ngModel]="scannedData['text']">{{cod_barr}}</ion-input>
+    
+          </ion-col>
+
+          <ion-col align-self-center size="2">
+            <ion-button fill="clear" color="griso" (click)="scanCode()">
+              <ion-icon slot="icon-only" name="barcode"></ion-icon>
+            </ion-button>                
+          </ion-col> 
+
+        </ion-row>
+    
+        <ion-row>
+          
+          <ion-col>
+            <ion-label>Se vende:</ion-label>
+          </ion-col>
+
+          <ion-col>
+            <ion-radio-group formControlName="tipventa">
+                <ion-item color="fondcla"
+                  *ngFor="let item of radio_list" 
+                  (ionFocus)="radioFocus()"
+                  (ionSelect)="radioSelect($event)"
+                  (ionBlur)="radioBlur()">
+                  <ion-label>{{item.text}}</ion-label>
+                  <ion-radio 
+                      slot="start" 
+                      name="{{item.name}}" 
+                      value="{{item.value}}" 
+                      checked="{{item.checked}}" 
+                    color="{{item.color}}" 
+                    disabled="{{item.disabled}}">
+                  </ion-radio>
+                </ion-item>
+            </ion-radio-group>
+          </ion-col>
+        </ion-row>
+    
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Alias</ion-label>
+              <ion-input formControlName="alias" type="text">{{alias}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Departamento</ion-label>
+              <ion-input formControlName="departamento" type="text">{{departamento}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio costo $</ion-label>
+              <ion-input formControlName="precosto" type="number">{{precio_costo}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio venta $</ion-label>
+              <ion-input formControlName="preventa" type="number">{{precio_venta}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Precio mayoreo $</ion-label>
+              <ion-input formControlName="premayor" type="number">{{precio_mayoreo}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Cantidad actual</ion-label>
+              <ion-input formControlName="cantactual" type="number">{{cant_actual}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-item color="fondcla">
+              <ion-label position="floating">Cantidad mínima</ion-label>
+              <ion-input formControlName="cantminima" type="number">{{cant_min}}</ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
     <br>
-    <ion-button fill="clear" expand="full">
-        <span class="izquierda">
-          <ion-icon slot="start" name="star"></ion-icon>
-          Left Icon
-        </span>
-    </ion-button>
-    <!-- <h3>{{id}}</h3> -->
+  </form>
+    
 </ion-content>

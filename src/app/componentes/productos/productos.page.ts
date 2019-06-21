@@ -29,7 +29,17 @@ export class ProductosPage implements OnInit {
       component: DetaproComponent,
       componentProps : {
         marca : prod.marca,
-        id: prod.clave
+        alias: prod.alias,
+        nombre: prod.descripcion,
+        cant_actual: prod.cant_actual,
+        cant_min: prod.cant_min,
+        cod_barr: prod.cod_barr,
+        departamento: prod.departamento,
+        foto: prod.foto_prod,
+        precio_costo: prod.precio_costo,
+        precio_mayoreo: prod.precio_mayoreo,
+        precio_venta: prod.precio_venta,
+        tipventa: prod.tipventa
       }
     }).then ( (modal) => modal.present())
   }

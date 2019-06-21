@@ -41,7 +41,7 @@ export class ProductosService {
   
   }
 
-  register(nombre: string, marca: string, codigo: string,
+  register(nombre: string, marca: string, codigo: string, tipventa: string,
     alias: string, departamento: string, imagen: string, precosto: number,
     preventa: number, premayor: number, cantactual: number,
     cantminima: number, imageData: any){
@@ -51,6 +51,7 @@ export class ProductosService {
       this.db.collection('products').add({
         descripcion: nombre,
         marca: marca,
+        tipventa: tipventa,
         cod_barr: codigo,
         alias: alias,
         departamento: departamento,
