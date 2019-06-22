@@ -1,0 +1,32 @@
+.linea {
+    margin: 0px;
+    height: 7px;
+    background-color: #F8DD00;
+}
+
+.estilo {
+    color: black;
+    --background: white;
+    margin-right: auto;
+    text-transform: none;
+  }
+.espacio{
+    margin-right: auto;
+}
+
+.letra{
+    color: black;
+    font-weight: bold;
+}
+
+.icono{
+    color:#7C7C7C;
+}
+
+.boton{
+    --background: white;
+    width: 90px;
+    height: 70px;
+    border-radius: 30p;
+    margin-bottom: 0px;
+  }

@@ -7,8 +7,8 @@
         <b>Caja</b>
       </ion-title>
       <ion-searchbar color="fondon" *ngIf="isSearchbarOpened" showCancelButton="true" (search)="onSearch($event)" (ionCancel)="isSearchbarOpened=false" placeholder="Buscar"></ion-searchbar>
-      <ion-buttons slot="end">
-        <ion-button  slot="primary" fill="solid" *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true" color="fondon">
+      <ion-buttons slot="end" color="fondon">
+        <ion-button  slot="primary" fill="clear" *ngIf="!isSearchbarOpened" (click)="isSearchbarOpened=true" color="fondon">
           <ion-icon name="search" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-buttons>

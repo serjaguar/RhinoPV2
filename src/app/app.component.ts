@@ -43,12 +43,12 @@ export class AppComponent {
     },
     {
       title: 'Servicios',
-      url: '/list',
+      url: '/servicios',
       icon: '/assets/imagenes/services.png'
     },
     {
       title: 'Configuración',
-      url: '/list',
+      url: '/configura',
       icon: '/assets/imagenes/settings.png'
     },
     {
